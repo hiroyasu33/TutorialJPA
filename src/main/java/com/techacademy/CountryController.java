@@ -24,7 +24,6 @@ public class CountryController {
         model.addAttribute("countrylist", service.getCountryList());
         // country//list.htmlに画面推移
         return "country/list";
-
     }
 
     // ----- 詳細画面 -----
@@ -50,8 +49,8 @@ public class CountryController {
     }
 
     // ----- 削除画面 -----
-    @GetMapping("/delete")
-    public String deleteCountryForm(Model model) {
+    @GetMapping(value = { "/delete", "/delete/{code}/" })
+    public String deleteCountryForm(@PathVariable(name = "code") String code, Model model) {
         // country/delete.htmlに画面推移
         return "country/delete";
     }
